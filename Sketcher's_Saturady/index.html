@@ -2504,48 +2504,7 @@
 <div class="svg-text"> Artist : <br> Tithi <br> @tithi </div>
 <button id="downloadButton">Download Images</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-<script>
-  document.getElementById('downloadButton').addEventListener('click', function() {
-      var promises = [];
-      var box = document.getElementById('box'); // Selecting the div with ID 'box'
-      var box1 = document.getElementById('box1'); // Selecting the div with ID 'box1'
-      
-      promises.push(new Promise(function(resolve, reject) {
-        html2canvas(box, {
-            useCORS: true,
-            logging: true
-        }).then(function(canvas) {
-            var imgData = canvas.toDataURL('image/png');
-            var link = document.createElement('a');
-            link.download = 'box.png'; // Changing the download file name to 'box.png'
-            link.href = imgData;
-            link.click();
-            resolve();
-        });
-    }));
-  
-      promises.push(new Promise(function(resolve, reject) {
-        html2canvas(box1, {
-            useCORS: true,
-            logging: true
-        }).then(function(canvas) {
-            var imgData = canvas.toDataURL('image/png');
-            var link = document.createElement('a');
-            link.download = 'box.png'; // Changing the download file name to 'box.png'
-            link.href = imgData;
-            link.click();
-            resolve();
-        });
-    }));
-  
-      Promise.all(promises).then(function() {
-        // Show a message indicating that the download process has started
-        alert('Download process has started. Check your browser\'s download section.');
-    }).catch(function(error) {
-        console.error('Error during download:', error);
-    });
-  });
-  </script>
+
   
 
 
